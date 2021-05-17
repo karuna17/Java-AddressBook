@@ -61,18 +61,63 @@ class AddressBook {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "AddressBook [firstName=" + firstName + ", lastName=" + lastName + ", city=" + city + ", state=" + state
 				+ ", pin=" + pin + ", mobileNo=" + mobileNo + ", email=" + email + "]";
 	}
-	
+
 }
 
 public class AddressBookSystem {
 	public static void main(String[] args) {
-		
+		Scanner sc = new Scanner(System.in);
+
+		AddressBook add[] = new AddressBook[10];
+		int count = 0;
+		String firstName;
+		String lastName;
+		String city;
+		String state;
+		String pin;
+		String mobileNo;
+		String email;
+
+		System.out.println("Enter your choice");
+		int choice = sc.nextInt();
+
+		System.out.println("1. Add Details 2. Update Details 3. Delete Details");
+
+		while(true) {
+			switch(choice) {
+			case 1: System.out.println("Add Details");
+			System.out.println("Enter how many no of address you want to add");
+			int num=sc.nextInt();
+
+			for(int i = 0; i < num; i++) {
+				System.out.println("Enter first and last name");
+				firstName = sc.next();
+				lastName = sc.next();
+				System.out.println("Enter city");
+				city = sc.next();
+				System.out.println("Enter state");
+				state = sc.next();
+				System.out.println("Enter pin");
+				pin = sc.next();
+				System.out.println("Enter Mobile number");
+				mobileNo = sc.next();
+				System.out.println("Enter Email Id");
+				email = sc.next();
+
+				add[count] = new AddressBook(firstName, lastName, city, state, pin, mobileNo, email); 
+				count++;
+				break; }
+			System.out.println("Details added successfully");
+
+			}
+		}
+
 	}
 
 }
