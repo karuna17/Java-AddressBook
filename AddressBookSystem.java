@@ -8,6 +8,7 @@ class AddressBook {
 	private String pin;
 	private String mobileNo;
 	private String email;
+
 	public AddressBook(String firstName, String lastName, String city, String state, String pin, String mobileNo,
 			String email) {
 		super();
@@ -91,6 +92,7 @@ public class AddressBookSystem {
 
 		while(true) {
 			switch(choice) {
+
 			case 1: System.out.println("Add Details");
 			System.out.println("Enter how many no of address you want to add");
 			int num=sc.nextInt();
@@ -112,8 +114,9 @@ public class AddressBookSystem {
 
 				add[count] = new AddressBook(firstName, lastName, city, state, pin, mobileNo, email); 
 				count++;
-				break; }
+			}
 			System.out.println("Details added successfully");
+			break;
 
 			case 2: System.out.println("Update Details");
 			System.out.println("Enter first name which you want to update");
@@ -147,14 +150,33 @@ public class AddressBookSystem {
 					System.out.println("Enter Email Id");
 					email = sc.next();
 					add[i].setEmail(email);
-					break; 
 				}
 			}
 			System.out.println("Details updated successfully");
+			break; 
 
+			case 3: System.out.println("Delete Details");
+
+			System.out.println("Enter first name which you want to delete from address book");
+			firstName = sc.next();
+
+			for(int i = 0; i < count; i++) {
+				if(add[i] != null && add[i].getFirstName()==firstName) {
+					add[i] = null;
+				}
+			}System.out.println("Details deleted successfully");
+			break;
+
+			case 4: System.out.println("All Details");
+			for(int i = 0; i < count; i++) {
+				System.out.println(add[i]); }
+			break;
+			
+			default: System.out.println("You entered invalid choice");
 			}
 		}
-
 	}
-
 }
+
+
+
