@@ -115,6 +115,43 @@ public class AddressBookSystem {
 				break; }
 			System.out.println("Details added successfully");
 
+			case 2: System.out.println("Update Details");
+			System.out.println("Enter first name which you want to update");
+			firstName = sc.next();
+			for(int i = 0; i < count; i++) {
+				if(add[i] != null && add[i].getFirstName()==firstName) {
+
+					System.out.println("Enter first name and last name");
+					firstName = sc.next();
+					add[i].setFirstName(firstName);
+
+					lastName = sc.next();
+					add[i].setLastName(lastName);
+
+					System.out.println("Enter city");
+					city = sc.next();
+					add[i].setCity(city);
+
+					System.out.println("Enter state");
+					state = sc.next();
+					add[i].setState(state);
+
+					System.out.println("Enter pin");
+					pin = sc.next();
+					add[i].setPin(pin);
+
+					System.out.println("Enter Mobile number");
+					mobileNo = sc.next();
+					add[i].setMobileNo(mobileNo);
+
+					System.out.println("Enter Email Id");
+					email = sc.next();
+					add[i].setEmail(email);
+					break; 
+				}
+			}
+			System.out.println("Details updated successfully");
+
 			}
 		}
 
