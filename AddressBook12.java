@@ -19,9 +19,10 @@ public class AddressBook12 {
 		String pin;
 		String mobileNo;
 		String email;
-		System.out.println("Enter how many Address Details you want to add");
-		int num=sc.nextInt();
-		for(int i=0;i<num;i++) {
+		System.out.println("Enter Address Details you want to add");
+		int num = sc.nextInt();
+		for(int i = 0; i < num; i++) {
+
 			System.out.println("Enter first and last name");
 			firstName = sc.next();
 			lastName = sc.next();
@@ -44,9 +45,8 @@ public class AddressBook12 {
 			addDetails.put("pin",pin);
 			addDetails.put("contact",mobileNo);
 			addDetails.put("email",email);
-
+			
 			boolean checkUser = false;
-
 			for(HashMap<String, String> l : list) {
 				String emailId = l.get(email);
 				if(emailId.equalsIgnoreCase(email)) {
@@ -61,14 +61,21 @@ public class AddressBook12 {
 		return "";
 	}
 
-
-
-	public static void main(String[] args) {
-
-		while(true) {
-			System.out.println("Enter Details");
-			addingWithoutDuplicate();
+	public static void getDetails() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Search person by it's city or state");
+		String search = sc.next();
+		for(HashMap<String, String> check : list) {
+			if(search.equals(check.get("fName"))){
+				System.out.println(check);
+			}
 		}
 	}
 
-}
+		public static void main(String[] args) {
+			addingWithoutDuplicate();	
+			getDetails();
+		}
+	}
+
+
