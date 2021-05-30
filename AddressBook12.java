@@ -48,7 +48,7 @@ public class AddressBook12 {
 			
 			boolean checkUser = false;
 			for(HashMap<String, String> l : list) {
-				String emailId = l.get(email);
+				String emailId = l.get("email");
 				if(emailId.equalsIgnoreCase(email)) {
 					checkUser = true;
 				}
@@ -66,8 +66,15 @@ public class AddressBook12 {
 		System.out.println("Search person by it's city or state");
 		String search = sc.next();
 		for(HashMap<String, String> check : list) {
-			if(search.equals(check.get("fName"))){
-				System.out.println(check);
+			if(search.equals(check.get("city")) || search.equals(check.get("state"))){
+				System.out.println(check.get("fName"));
+				System.out.println(check.get("lName"));
+				System.out.println(check.get("city"));
+				System.out.println(check.get("state"));
+				System.out.println(check.get("pin"));
+				System.out.println(check.get("contact"));
+				System.out.println(check.get("email"));
+
 			}
 		}
 	}
